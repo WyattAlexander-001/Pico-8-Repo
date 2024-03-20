@@ -3,7 +3,7 @@
 
 # Aqua Teen Hunger Force "The RPG" Fan Game 
 
-![Main tiles](/images/AquaTeenSprites.png)
-![Terrain tiles](/images/MCHouse.png)
-![Carl House](/images/CarlHouse.png)
-![Rooms](/images/AquaTeenRooms.png)
+![Main tiles](/images/AquaTeenSprites.PNG)
+![Terrain tiles](/images/MCHouse.PNG)
+![Carl House](/images/CarlHouse.PNG)
+![Rooms](/images/AquaTeenRooms.PNG)
