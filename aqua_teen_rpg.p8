@@ -19,7 +19,7 @@ current_char = 1
 
 --swapping char delay:
 swap_delay = 0
-swap_cooldown = 6
+swap_cooldown = 12
 
 --movement speed delay:
 move_delay = 0
