@@ -16,6 +16,8 @@ function _update60()
 		update_map()
 		move_player()
 		check_win_lose()
+	else
+		if (btnp(❎)) extcmd("reset")
 	end
 end
 
@@ -157,6 +159,7 @@ function draw_win_lose()
 	else
 		print("game over!", 38,64,7)
 	end
+	print("press ❎ to play again!",20,72,5)
 end
 -->8
 --inventory
