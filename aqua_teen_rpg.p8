@@ -127,6 +127,8 @@ function debug_screen()
 	print("debug menu: " ,invx+0,invy+1,8)
 	print("x: "..p.x ,invx+0,invy+10,8)		
 	print("y: "..p.y ,invx+0,invy+20,8)
+	print("sprite #: "..p.sprite ,invx+0,invy+30,8)
+
 
 end
 __gfx__
