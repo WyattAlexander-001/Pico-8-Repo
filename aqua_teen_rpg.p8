@@ -4,6 +4,7 @@ __lua__
 --core functions
 
 function _init()
+	printh("started init")
 	map_setup()
 	make_player()
 	
@@ -144,7 +145,12 @@ function interact(x,y)
 	elseif (is_tile(teleporter,x,y)) then
 		--carl door -> carl house
 		if( x==26 and y==22) then
+			printh("p.x: "..p.x)
+			printh("p.y: "..p.y)
 			teleport_player(0,0)
+			printh("p.x: "..p.x)
+			printh("p.y: "..p.y)
+			printh("//========//")
 		end
 		--shake door -> main house
 		if( x ==38 and y==24) then
@@ -157,6 +163,7 @@ function teleport_player(target_x,target_y)
 	p.x=target_x
 	p.y=target_y
 	sfx(4)
+	teleport_cooldown = 5
 end
 
 function check_win_lose()
