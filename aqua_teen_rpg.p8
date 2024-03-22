@@ -12,15 +12,12 @@ function _update60()
 	move_player()
 end
 
-
-
-
 function _draw()
  cls()
  draw_map()
  draw_player()
  if (btn(❎)) show_inventory()
-
+ debug_screen()
 end
 
  
@@ -63,21 +60,28 @@ end
 --player
 function make_player()
 	p={}
-	p.x=71
-	p.y=9
+	p.x=45
+	p.y=23
 	p.sprite=1
 	p.keys=0
+	p.direction=false
 end
 
 function draw_player()
-	spr(p.sprite, p.x*8,p.y*8)
+	spr(p.sprite, p.x*8,p.y*8,1,1,p.direction)
 end
 
 function move_player()
 	newx=p.x
 	newy=p.y
-	if (btnp(⬅️)) newx-=1
-	if (btnp(➡️)) newx+=1
+	if (btnp(⬅️)) then
+		p.direction=true
+	 newx-=1
+	end
+	if (btnp(➡️)) then
+		p.direction=false
+	 newx+=1
+	end
 	if (btnp(⬆️)) newy-=1
 	if (btnp(⬇️)) newy+=1
 	
@@ -100,12 +104,30 @@ end
 --inventory
 
 function show_inventory()
-	invx=mapx*8+40 
-	invy=mapy*8+8
+	--default coordinates lower left
+	invx=mapx*8+0 
+	invy=mapy*8+105
 	
-	rectfill(invx,invy,invx+48,invy+24,0)
-	print("inventory:",invx+7,invy+4,7)
-	print("keys: " ..p.keys,invx+12,invy+14,9)
+	rectfill(invx,invy,invx+100,invy+20,0) --black box
+	print("inventory: ",invx+20,invy+4,9) --9 is orange
+	print("keys: " ..p.keys,invx+20,invy+11,10) -- 10 is yellow
+end
+-->8
+--utility
+function truesgn(a) -- -5 returns -1
+    local r=0
+    if (a!=0) r=sgn(a)
+    return r
+end
+
+function debug_screen()
+	invx=mapx*8+0 
+	invy=mapy*8+0
+		
+	print("debug menu: " ,invx+0,invy+1,8)
+	print("x: "..p.x ,invx+0,invy+10,8)		
+	print("y: "..p.y ,invx+0,invy+20,8)
+
 end
 __gfx__
 877777780000eee0a9a9a90000000000000ff0000000000000000000055555500066660000000000000000000000000000000000770000007777777700000077
@@ -304,7 +326,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 
 __gff__
-0000000000000000000000000001010100000100000000000000000000010101000000000000000000000000000101010000000000020200000000000000000100000000000000000101010101010200000001000101010101000101010104040000000002010101040400000100020100000001040100010404030101000004
+0000000000000000000000000001010100000100000000000000000000010101000000000000000000000000000101010000000000020200000000000000000100000000000000000101010101010200000001000101010101000101010104040000000004010101040400000100020100000001040100010404030101000004
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 __map__
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008
