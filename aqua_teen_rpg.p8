@@ -147,10 +147,11 @@ function interact(x,y)
 		--carl door -> carl house
 		if( x==26 and y==22) then
 			teleport_player(70,9)
+		--carl house -> carl door
 		elseif (x==70 and y==10 or x==71 and y==10) then
 			teleport_player(26,23)
-
 		end
+		
 		--shake door -> main house
 		if( x == 38 and y==24) then
 			teleport_player(0,0)
